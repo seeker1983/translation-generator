@@ -42,6 +42,7 @@ var entries = _.chain(structure).map('entries').flatten().sort().uniq().value();
 var output = entries.map(v => 
 `msgid "${v}"
 msgstr "${v}"
+
 `).join('');
 function xd(v){console.log(v); process.exit();}
 

@@ -18,7 +18,7 @@
     "file": "test/test.tmpl",
     "entries": [
       "Work'site",
-      "Employee \\\"Main\\\"",
+      "Employee",
       "Priority",
       "Status",
       "Filter",
