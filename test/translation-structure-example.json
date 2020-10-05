@@ -1,0 +1,29 @@
+[
+  {
+    "file": "test/cfg.yaml",
+    "entries": [
+      "Billing",
+      "Billing-2",
+      "Billing-3"
+    ]
+  },
+  {
+    "file": "test/subf/cfg_subf.yaml",
+    "entries": [
+      "Billing",
+      "Billing-subf"
+    ]
+  },
+  {
+    "file": "test/test.tmpl",
+    "entries": [
+      "Work'site",
+      "Employee \\\"Main\\\"",
+      "Priority",
+      "Status",
+      "Filter",
+      "Single-Quote",
+      "Back-Quote"
+    ]
+  }
+]

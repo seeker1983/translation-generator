@@ -1,0 +1,8 @@
+{{ if eq .String "worksite" }}	{{ $label = (t "Work'site") }}	{{ end }}
+{{ if eq .String "employee" }}	{{ $label = (t "Employee \"Main\"") }}	{{ end }}
+{{ if eq .String "priority" }}	{{ $label = (t "Priority") }}	{{ end }}
+{{ if eq .String "status" }}		{{ $label = (t "Status") }}		{{ end }}
+<span @click="open = !open" @click.away="open = false">{{ t "Filter" }}</span>
+
+{{ $label = (t 'Single-Quote') }}		
+{{ $label = (t `Back-Quote`) }}		

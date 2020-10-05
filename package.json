@@ -1,0 +1,20 @@
+{
+  "name": "translation-finder",
+  "version": "1.0.0",
+  "description": "Builds translation glossary base.",
+  "main": "translation-generator.js",
+  "scripts": {
+    "test": "node translation-generator.js && node test.js"
+  },
+  "author": "",
+  "license": "ISC",
+  "repository": {
+    "type": "git",
+    "url": "http://github.com"
+  },
+  "dependencies": {
+    "fast-glob": "^3.2.4",
+    "lodash": "^4.17.20",
+    "mkdirp": "^1.0.4"
+  }
+}
