@@ -1,0 +1,10 @@
+[
+  {
+    "file": "test/test.tmpl",
+    "entries": [
+      "Single-Quote",
+      "Double-Quote",
+      "Back-Quote"
+    ]
+  }
+]

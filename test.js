@@ -1,20 +1,50 @@
 const fs = require('fs')
-const config = require('./config')
-const s1 = fs.readFileSync(__dirname + '/' + 'test/translation-structure-example.json', config.ENCODING);
-const s2 = fs.readFileSync(__dirname + '/' + config.STRUCTURE_FILE, config.ENCODING);
+const { exec } = require("child_process");
 
-if(s1 == s2)
-	console.log('Structure matches.');
-else
-	throw 'Structure mismatch!';
+var tests = [
+	{
+		configName: './config.js',
+		structure_example: 'test/translation-structure-example.json',
+		output_example: 'test/default-example.po'
+	},
+	{
+		configName: './config-json.js',
+		structure_example: 'test/json-structure-example.json',
+		output_example: 'test/main-example.json'
+	},
+]
 
-const s3 = fs.readFileSync(__dirname + '/' + 'test/default-example.po', config.ENCODING);
-const s4 = fs.readFileSync(__dirname + '/' + config.OUTPUT_FILE, config.ENCODING);
+tests.map(test => {
+	var config = require(test.configName);
 
-if(s3 == s4)
-	console.log('Glossary matches.');
-else
-	throw 'Glossary mismatch!';
+	function gets(fname) {
+		return fs.readFileSync(__dirname + '/' + fname, config.ENCODING);
+	}
+
+	try {
+		fs.unlinkSync(config.STRUCTURE_FILE);
+		fs.unlinkSync(config.OUTPUT_FILE);
+	} catch(e){}
+
+	console.log('Executing ' + __dirname + '/' + config.NAME + '.js')
+	exec('node ' + __dirname + '/' + config.NAME + '.js',
+		function(){
+			if(gets(test.structure_example) == gets(config.STRUCTURE_FILE))
+				console.log(`Structure matches for [${config.NAME}].`);
+			else
+				throw `Structure mismatch for [${config.NAME}]!`
 
 
-console.log('All tests successful.')
+			if(gets(test.output_example) == gets(config.OUTPUT_FILE))
+				console.log(`Output matches for [${config.NAME}].`);
+			else
+				throw `Output mismatch for [${config.NAME}]!`
+
+
+		}
+	);
+
+})
+
+
+//console.log('All tests successful.')

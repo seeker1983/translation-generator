@@ -28,16 +28,38 @@ node test.js
 ```
 Run a simple test to check package integrity and correct setup.
 
+## JSON Generator
+``` bash
+node json-generator.js
+```
+Works same way, but translates 
+```
+${'String1'} 
+${'String2'} 
+```
+patterns into 
+```
+{
+	"String1":"String1",
+	"String2":"String2"
+}
+```
+json objects.
+
+Associated config is **config-json.js**
+
 # Files
 
 ##### *Executable*
 
 - **translation-generator.js** - Main executable
+- **json-generator.js** - Auxillary executable
 - **test.js** - Test wrapper
 
 ##### *Auxilary*
 
 - **config.js** - Configuration parameters
+- **config-json.js** - Configuration parameters for **json-generator**
 - **spreadsheet.php** - Loads spreadsheet data
 - **service-account.json** - Service account example
 - **package.json** - Package description
